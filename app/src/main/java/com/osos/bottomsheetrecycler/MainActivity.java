@@ -2,6 +2,9 @@ package com.osos.bottomsheetrecycler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -60,52 +63,61 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void openSheet(){
-        Toast.makeText(MainActivity.this, "Please wait!!", Toast.LENGTH_SHORT).show();
-        List<ItemObject> list = new ArrayList<>();
+    boolean isNetworkConnectionAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getActiveNetworkInfo();
+        if (info == null) return false;
+        NetworkInfo.State network = info.getState();
+        return (network == NetworkInfo.State.CONNECTED || network == NetworkInfo.State.CONNECTING);
+    }
+    private void openSheet() {
+        if (isNetworkConnectionAvailable()) {
+            Toast.makeText(MainActivity.this, "Please wait!!", Toast.LENGTH_SHORT).show();
+            List<ItemObject> list = new ArrayList<>();
 
-        String url = "https://api.printful.com/countries";
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray ja = response.getJSONArray("result");
+            String url = "https://api.printful.com/countries";
+            JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, url, null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                JSONArray ja = response.getJSONArray("result");
 
-                            for (int i = 0 ; i < ja.length() ; i++){
-                                JSONObject res = ja.getJSONObject(i);
-                                String cname = res.getString("name");
-                                String code = res.getString("code");
-                                String dup = "https://www.countryflags.io/"+code+"/flat/64.png";
-                                ItemObject itemObject = new ItemObject(cname,dup);
-                                list.add(itemObject);
-                                Log.i("TAG", "onResponse: "+dup);
+                                for (int i = 0; i < ja.length(); i++) {
+                                    JSONObject res = ja.getJSONObject(i);
+                                    String cname = res.getString("name");
+                                    String code = res.getString("code");
+                                    String dup = "https://www.countryflags.io/" + code + "/flat/64.png";
+                                    ItemObject itemObject = new ItemObject(cname, dup);
+                                    list.add(itemObject);
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+
+                            frag = new MyBottomSheetFragment(list, new IClickListner() {
+                                @Override
+                                public void clickItem(ItemObject itemObject) {
+                                    textView.setText(itemObject.getName());
+                                    Picasso.get().load(itemObject.getImageUrl()).into(imageView);
+                                    SharedPreferenceService.setLastUsedText(MainActivity.this, itemObject.getName());
+                                    SharedPreferenceService.setLastUsedImage(MainActivity.this, itemObject.getImageUrl());
+                                    frag.dismiss();
+                                }
+                            });
+                            frag.show(getSupportFragmentManager(), frag.getTag());
                         }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.i("TAG", "onErrorResponse: " + error);
+                }
+            });
+            mQ.add(req);
 
-                       frag = new MyBottomSheetFragment(list, new IClickListner() {
-                            @Override
-                            public void clickItem(ItemObject itemObject) {
-                                textView.setText(itemObject.getName());
-                                Picasso.get().load(itemObject.getImageUrl()).into(imageView);
-                                Toast.makeText(MainActivity.this, itemObject.getName(), Toast.LENGTH_SHORT).show();
-                                SharedPreferenceService.setLastUsedText(MainActivity.this,itemObject.getName());
-                                SharedPreferenceService.setLastUsedImage(MainActivity.this,itemObject.getImageUrl());
-                                frag.dismiss();
-                            }
-                        });
-                        frag.show(getSupportFragmentManager(),frag.getTag());
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.i("TAG", "onErrorResponse: "+error);
-            }
-        });
-        mQ.add(req);
-
+        }else {
+            Toast.makeText(MainActivity.this, "Check you internet connection", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
