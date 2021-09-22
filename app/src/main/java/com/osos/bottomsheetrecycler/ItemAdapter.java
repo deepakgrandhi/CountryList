@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 iClickListner.clickItem(itemObject);
             }
         });
+
         Picasso.get().load(itemObject.getImageUrl()).into(holder.imageView);
     }
 

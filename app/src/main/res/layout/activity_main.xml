@@ -41,6 +41,6 @@
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
-            android:text="Click here"/>
+            android:text="Open sheet"/>
     </LinearLayout>
 </LinearLayout>

@@ -24,14 +24,10 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Download File"
+            android:text="Country"
             android:textColor="@color/black"
             android:layout_gravity="center_vertical"
             android:padding="8dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
     </LinearLayout>
 </LinearLayout>
