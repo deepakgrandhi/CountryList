@@ -10,51 +10,54 @@
 9        android:targetSdkVersion="30" />
 9-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml
 10
-11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:5:5-66
-11-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:5:22-64
-12
-13    <application
-13-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:7:5-21:19
-14        android:allowBackup="true"
-14-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:8:9-35
-15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-15-->[androidx.core:core:1.5.0] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\cc5e9dcdc56dc39042f72c501235e83f\core-1.5.0\AndroidManifest.xml:24:18-86
-16        android:debuggable="true"
-17        android:icon="@mipmap/ic_launcher"
-17-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:9:9-43
-18        android:label="@string/app_name"
-18-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:10:9-41
-19        android:roundIcon="@mipmap/ic_launcher_round"
-19-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:11:9-54
-20        android:supportsRtl="true"
-20-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:12:9-35
-21        android:testOnly="true"
-22        android:theme="@style/Theme.BottomSheetRecycler" >
-22-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:13:9-57
-23        <activity android:name="com.osos.bottomsheetrecycler.MainActivity" >
-23-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:14:9-20:20
-23-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:14:19-47
-24            <intent-filter>
-24-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:15:13-19:29
-25                <action android:name="android.intent.action.MAIN" />
-25-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:16:17-69
-25-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:16:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:18:17-77
-27-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:18:27-74
-28            </intent-filter>
-29        </activity>
-30
-31        <provider
-31-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:8:9-11:40
-32            android:name="com.squareup.picasso.PicassoProvider"
-32-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:9:13-64
-33            android:authorities="com.osos.bottomsheetrecycler.com.squareup.picasso"
-33-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:10:13-72
-34            android:exported="false" />
-34-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:11:13-37
-35    </application>
-36
-37</manifest>
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:6:5-66
+12-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:6:22-64
+13
+14    <application
+14-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:8:5-22:19
+15        android:allowBackup="true"
+15-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:9:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.5.0] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\cc5e9dcdc56dc39042f72c501235e83f\core-1.5.0\AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:icon="@mipmap/ic_launcher"
+18-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:10:9-43
+19        android:label="@string/app_name"
+19-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:11:9-41
+20        android:roundIcon="@mipmap/ic_launcher_round"
+20-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:12:9-54
+21        android:supportsRtl="true"
+21-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:13:9-35
+22        android:testOnly="true"
+23        android:theme="@style/Theme.BottomSheetRecycler" >
+23-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:14:9-57
+24        <activity android:name="com.osos.bottomsheetrecycler.MainActivity" >
+24-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:15:9-21:20
+24-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:15:19-47
+25            <intent-filter>
+25-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:16:13-20:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:17:17-69
+26-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:17:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:19:17-77
+28-->C:\Users\Deepak\Desktop\BottomSheetRecycler\app\src\main\AndroidManifest.xml:19:27-74
+29            </intent-filter>
+30        </activity>
+31
+32        <provider
+32-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:8:9-11:40
+33            android:name="com.squareup.picasso.PicassoProvider"
+33-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:9:13-64
+34            android:authorities="com.osos.bottomsheetrecycler.com.squareup.picasso"
+34-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:10:13-72
+35            android:exported="false" />
+35-->[com.squareup.picasso:picasso:2.71828] C:\Users\Deepak\.gradle\caches\transforms-2\files-2.1\5ec8ef568aef29538e78c2fdcb41df0e\picasso-2.71828\AndroidManifest.xml:11:13-37
+36    </application>
+37
+38</manifest>
