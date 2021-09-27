@@ -16,6 +16,7 @@
         android:textSize="18sp"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:layout_marginBottom="16dp"
         android:text="YOUR REGION"/>
 
     <LinearLayout

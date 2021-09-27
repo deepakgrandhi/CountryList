@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     String a,b;
 
+    ItemObject itemObject;
     MyBottomSheetFragment frag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         if (isNetworkConnectionAvailable()) {
             Toast.makeText(MainActivity.this, "Please wait!!", Toast.LENGTH_SHORT).show();
             List<ItemObject> list = new ArrayList<>();
-
             String url = "https://api.printful.com/countries";
             JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONObject>() {
@@ -88,7 +88,11 @@ public class MainActivity extends AppCompatActivity {
                                     String cname = res.getString("name");
                                     String code = res.getString("code");
                                     String dup = "https://www.countryflags.io/" + code + "/flat/64.png";
-                                    ItemObject itemObject = new ItemObject(cname, dup);
+                                    if (SharedPreferenceService.getLastUsedText(getApplicationContext())!=null && cname.equals(SharedPreferenceService.getLastUsedText(getApplicationContext()))){
+                                        itemObject = new ItemObject(cname, dup ,true);
+                                    }else {
+                                        itemObject = new ItemObject(cname, dup ,false);
+                                    }
                                     list.add(itemObject);
                                 }
                             } catch (JSONException e) {

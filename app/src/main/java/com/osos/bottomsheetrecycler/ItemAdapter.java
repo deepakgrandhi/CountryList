@@ -1,5 +1,6 @@
 package com.osos.bottomsheetrecycler;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +40,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             return;
         }
         holder.textView.setText(itemObject.getName());
+        holder.rb1.setChecked(itemObject.getRb1());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +63,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         private TextView textView;
         private LinearLayout linearLayout;
         private ImageView imageView;
+        private RadioButton rb1;
 
         public ItemViewHolder(@NonNull View itemView){
             super(itemView);
@@ -67,6 +71,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             linearLayout = itemView.findViewById(R.id.linear);
             textView = itemView.findViewById(R.id.textView);
             imageView = itemView.findViewById(R.id.image);
+            rb1 = itemView.findViewById(R.id.rb1);
         }
     }
 }

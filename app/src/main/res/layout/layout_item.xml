@@ -29,5 +29,17 @@
             android:layout_gravity="center_vertical"
             android:padding="8dp"/>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:clickable="false"
+                android:id="@+id/rb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"/>
+        </RelativeLayout>
+
     </LinearLayout>
 </LinearLayout>
